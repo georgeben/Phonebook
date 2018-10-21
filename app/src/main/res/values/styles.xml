@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="PrimaryText" parent="Base.TextAppearance.AppCompat.Title">
+        <item name="textColor">@color/dark_text</item>
+    </style>
+
 </resources>

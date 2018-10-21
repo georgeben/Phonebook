@@ -20,18 +20,20 @@ public class ContactRecyclerViewAdapter extends RecyclerView.Adapter<ContactRecy
 
     private LayoutInflater mInflater;
     private Context mContext;
-    private ArrayList<Contact> contacts;
+    //private ArrayList<Contact> contacts;
     private ContactItemClickListener mListener;
+    private ContactOpenHelper mDB;
 
     public interface ContactItemClickListener{
         void onItemClick(int position);
     }
 
-    public ContactRecyclerViewAdapter(Context ctx, ArrayList<Contact> contacts, ContactItemClickListener listener){
+    public ContactRecyclerViewAdapter(Context ctx, ContactItemClickListener listener, ContactOpenHelper db){
         mContext = ctx;
-        this.contacts = contacts;
+        //this.contacts = contacts;
         mInflater = LayoutInflater.from(mContext);
         mListener = listener;
+        mDB = db;
     }
     @Override
     public ContactRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -41,14 +43,18 @@ public class ContactRecyclerViewAdapter extends RecyclerView.Adapter<ContactRecy
 
     @Override
     public void onBindViewHolder(ContactRecyclerViewAdapter.ViewHolder holder, int position) {
-        Contact contact = contacts.get(position);
+        /*Contact contact = contacts.get(position);
+        */
+        final ViewHolder h = holder;
+        Contact contact = mDB.query(position);
         holder.contact_name.setText(contact.getName());
         holder.contact_phone.setText(contact.getPhone());
     }
 
     @Override
     public int getItemCount() {
-        return contacts.size();
+        //return contacts.size();
+        return  (int) mDB.count();
     }
 
      class ViewHolder extends  RecyclerView.ViewHolder{

@@ -9,7 +9,7 @@
     </style>
 
     <style name="PrimaryText" parent="Base.TextAppearance.AppCompat.Title">
-        <item name="textColor">@color/dark_text</item>
+        <item name="android:color">@color/dark_text</item>
     </style>
 
 </resources>

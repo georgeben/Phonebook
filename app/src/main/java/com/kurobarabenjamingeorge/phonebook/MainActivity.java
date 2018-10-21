@@ -1,5 +1,6 @@
 package com.kurobarabenjamingeorge.phonebook;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -47,8 +48,9 @@ public class MainActivity extends AppCompatActivity implements ContactRecyclerVi
             @Override
             public void onClick(View view) {
                // mDB.fillDatabase(mDB.getWritableDatabase());
-                long numItems = mDB.count();
-                Log.i("Num of items", String.valueOf(numItems));
+                //long numItems = mDB.count();
+                //Log.i("Num of items", String.valueOf(numItems));
+                startActivity(new Intent(MainActivity.this, AddContactActivity.class));
             }
         });
     }

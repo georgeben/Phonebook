@@ -39,6 +39,7 @@
         android:layout_marginLeft="10dp"
         android:hint="Phone"
         android:maxLines="1"
+        android:inputType="phone"
         />
 
     <EditText
@@ -48,23 +49,22 @@
         android:layout_marginLeft="10dp"
         android:hint="Email"
         android:maxLines="1"
-        />
+        android:inputType="textEmailAddress"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/address"
+        android:id="@+id/address_et"
         android:layout_marginLeft="10dp"
-        android:hint="Adress"
-        android:maxLines="1"
-        />
+        android:hint="Address"
+        android:maxLines="1" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bio_et"
         android:layout_marginLeft="10dp"
-        android:hint="Name"
+        android:hint="A short description of the contact"
         />
 
     <Button

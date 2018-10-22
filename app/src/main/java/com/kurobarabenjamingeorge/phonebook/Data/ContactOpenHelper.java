@@ -129,4 +129,25 @@ public class ContactOpenHelper extends SQLiteOpenHelper {
         }
         return DatabaseUtils.queryNumEntries(mReadableDatabase, CONTACT_TABLE);
     }
+
+    public long insert(Contact contact){
+        long newId = 0;
+        ContentValues values = new ContentValues();
+        values.put(NAME_KEY ,contact.getName());
+        values.put(PHONE_KEY, contact.getPhone());
+        values.put(EMAIL_KEY, contact.getEmail());
+        values.put(ADDRESS_KEY, contact.getAddress());
+        values.put(BIO_KEY, contact.getBio());
+        try{
+            if(mWritableDatabase == null){
+                mWritableDatabase = getWritableDatabase();
+            }
+            newId = mWritableDatabase.insert(CONTACT_TABLE, null, values);
+
+        }catch (Exception e){
+            Log.i("Failed to insert", e.getMessage());
+        }
+
+        return newId;
+    }
 }

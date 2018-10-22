@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.kurobarabenjamingeorge.phonebook.ViewContactActivity">
+
+    <ImageView
+        android:id="@+id/contact_img_view"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/me" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/contact_name_tv"
+        style="@style/PrimaryText"
+        android:text="George Benjamin"
+        android:layout_margin="10dp" />
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/contact_phone_tv"
+                android:text="08102345623"
+                android:textSize="17sp"
+                android:textColor="#262626"
+                android:drawableLeft="@drawable/ic_local_phone_black_24dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/contact_email_tv"
+        android:text="08102345623"
+        android:textSize="17sp"
+        android:textColor="#262626"
+        android:drawableLeft="@drawable/ic_email_black_24dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/contact_address_tv"
+        android:text="08102345623"
+        android:textSize="17sp"
+        android:textColor="#262626"
+        android:drawableLeft="@drawable/ic_home_black_24dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/contact_bio_tv"
+        android:text="08102345623"
+        android:textSize="17sp"
+        android:textColor="#262626"
+        android:drawableLeft="@drawable/ic_info_outline_black_24dp"/>
+</LinearLayout>
+

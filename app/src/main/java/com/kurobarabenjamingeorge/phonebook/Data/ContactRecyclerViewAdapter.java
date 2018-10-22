@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kurobarabenjamingeorge.phonebook.R;
@@ -25,7 +26,7 @@ public class ContactRecyclerViewAdapter extends RecyclerView.Adapter<ContactRecy
     private ContactOpenHelper mDB;
 
     public interface ContactItemClickListener{
-        void onItemClick(int position);
+        void onItemClick(int position, Contact contact);
     }
 
     public ContactRecyclerViewAdapter(Context ctx, ContactItemClickListener listener, ContactOpenHelper db){
@@ -46,9 +47,15 @@ public class ContactRecyclerViewAdapter extends RecyclerView.Adapter<ContactRecy
         /*Contact contact = contacts.get(position);
         */
         final ViewHolder h = holder;
-        Contact contact = mDB.query(position);
+        final Contact contact = mDB.query(position);
         holder.contact_name.setText(contact.getName());
         holder.contact_phone.setText(contact.getPhone());
+        holder.root_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onItemClick(h.getAdapterPosition(), contact);
+            }
+        });
     }
 
     @Override
@@ -60,6 +67,7 @@ public class ContactRecyclerViewAdapter extends RecyclerView.Adapter<ContactRecy
      class ViewHolder extends  RecyclerView.ViewHolder{
         public ImageView contact_image;
         public TextView contact_name, contact_phone;
+        private LinearLayout root_layout;
         private ContactRecyclerViewAdapter adapter;
         public ViewHolder(View itemView, ContactRecyclerViewAdapter adapter) {
             super(itemView);
@@ -67,13 +75,14 @@ public class ContactRecyclerViewAdapter extends RecyclerView.Adapter<ContactRecy
             contact_image = itemView.findViewById(R.id.contact_image);
             contact_name = itemView.findViewById(R.id.contact_name);
             contact_phone = itemView.findViewById(R.id.contact_phone);
+            root_layout = itemView.findViewById(R.id.contact_item_root);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            /*itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     mListener.onItemClick(getAdapterPosition());
                 }
-            });
+            });*/
         }
 
      }

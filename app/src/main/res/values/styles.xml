@@ -8,6 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.NoAtionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="PrimaryText" parent="Base.TextAppearance.AppCompat.Title">
         <item name="android:color">@color/dark_text</item>
     </style>
